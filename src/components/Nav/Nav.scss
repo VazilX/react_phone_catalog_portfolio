@@ -21,10 +21,8 @@
   }
 
   &__item {
-    display: flex;
     height: 100%;
     list-style: none;
-    align-items: center;
     margin: 0;
     padding: 0;
 
@@ -37,6 +35,12 @@
     font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
+    
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    
 
     @include hover(color, $primary-color);
 

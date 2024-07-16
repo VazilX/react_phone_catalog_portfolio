@@ -23,7 +23,7 @@ export const Nav: React.FC<Props> = ({ isFooter = false }) => {
               className={ob => classNameFunc(ob, BASE_CLASS, isFooter)}
               onClick={() => setHasMenu(false)}
             >
-              HOME
+              <span>HOME</span>
             </NavLink>
           </li>
         )}
@@ -33,7 +33,7 @@ export const Nav: React.FC<Props> = ({ isFooter = false }) => {
             className={ob => classNameFunc(ob, BASE_CLASS, isFooter)}
             onClick={() => setHasMenu(false)}
           >
-            Phones
+            <span>Phones</span>
           </NavLink>
         </li>
         <li className="nav__item">
@@ -42,7 +42,7 @@ export const Nav: React.FC<Props> = ({ isFooter = false }) => {
             className={ob => classNameFunc(ob, BASE_CLASS, isFooter)}
             onClick={() => setHasMenu(false)}
           >
-            tablets
+            <span>tablets</span>
           </NavLink>
         </li>
         <li className="nav__item">
@@ -51,7 +51,7 @@ export const Nav: React.FC<Props> = ({ isFooter = false }) => {
             className={ob => classNameFunc(ob, BASE_CLASS, isFooter)}
             onClick={() => setHasMenu(false)}
           >
-            accessories
+            <span>accessories</span>
           </NavLink>
         </li>
       </ul>
