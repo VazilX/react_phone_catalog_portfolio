@@ -15,16 +15,14 @@ export const Cart: React.FC<Props> = () => {
   const [count, setCount] = useState(0);
 
   const handlerStorage = () => {
-    const storage = getLocalStorage<CartObjType[]>('cart');
+    const storage = getLocalStorage<CartObjType>('cart');
 
     if (storage) {
       const newCount = Object.keys(storage).length;
 
-      if (newCount) {
-        setCount(newCount);
-      } else {
-        setCount(0);
-      }
+      setCount(newCount);
+    } else {
+      setCount(0);
     }
   };
 
@@ -43,7 +41,7 @@ export const Cart: React.FC<Props> = () => {
         className={ob => classNameFunc(ob, BASE_CLASS, false)}
         onClick={() => setHasMenu(false)}
       />
-      {count > 0 && <span className="favorites__count">{count}</span>}
+      {count > 0 && <span className="cart__count">{count}</span>}
     </div>
   );
 };
