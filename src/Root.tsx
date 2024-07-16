@@ -1,0 +1,36 @@
+import React from 'react';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { App } from './App';
+import { HomePage } from './pages/HomePage/HomePage';
+import { ProductContextProvider } from './helpers/utils/productsContext';
+import { Shop } from './pages/Shop';
+import { ProductDetailsPage } from './pages/ProductDetailsPage';
+import { FavoritesPage } from './pages/FavoritesPage';
+import { CartPage } from './pages/CartPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { SearchContextProvider } from './helpers/utils/searchContext';
+import { MenuContextProvider } from './helpers/utils/menuContext';
+
+export const Root: React.FC = () => (
+  <ProductContextProvider>
+    <SearchContextProvider>
+      <MenuContextProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route index element={<HomePage />} />
+              <Route path="/shop/:type" element={<Shop />} />
+              <Route
+                path="/product/:productId"
+                element={<ProductDetailsPage />}
+              />
+              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </Router>
+      </MenuContextProvider>
+    </SearchContextProvider>
+  </ProductContextProvider>
+);
