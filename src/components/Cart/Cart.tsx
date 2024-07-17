@@ -18,7 +18,12 @@ export const Cart: React.FC<Props> = () => {
     const storage = getLocalStorage<CartObjType>('cart');
 
     if (storage) {
-      const newCount = Object.keys(storage).length;
+      const storageKeys = Object.keys(storage);
+
+      const newCount = storageKeys.reduce(
+        (counter, key) => counter + storage[key].quantity,
+        0,
+      );
 
       setCount(newCount);
     } else {
